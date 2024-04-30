@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns 
 
 
+
 st.title('Hello Wilders, bienvenue sur cette web app !')
 st.title('Analysons le dataset des voitures !')
 
@@ -19,15 +20,17 @@ st.title('Graphique interactif de distribution')
 df_cars['continent'] = df_cars['continent'].apply(lambda x : x.replace('.', ''))
 option = st.selectbox(label= 'veuillez séléctionner un continent.', options= df_cars['continent'].unique())
 
-st.subheader("Nuage de points par continent")
+st.subheader("Graphique d'histogramme par continent")
 
 df_filtre = df_cars[df_cars["continent"]== option]
 
-viz_correlation= sns.scatterplot(x = df_filtre["hp"],
-                                 y = df_filtre["mpg"],
-                             hue = df_filtre["continent"])
-st.pyplot(viz_correlation.figure)
-                                
+
+plt.figure(figsize=(10, 6))
+viz_correlation5 = sns.histplot(data=df_cars, 
+                                x=df_filtre["hp"],
+                                hue=df_filtre["continent"])
+st.pyplot(viz_correlation5.figure)
+
    
 st.title('Graphique de corrélations filtré par région')
 
