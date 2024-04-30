@@ -26,10 +26,10 @@ df_filtre = df_cars[df_cars["continent"]== option]
 
 
 plt.figure(figsize=(10, 6))
-viz_correlation5 = sns.histplot(data=df_cars, 
+viz_correlation = sns.histplot(data=df_cars, 
                                 x=df_filtre["hp"],
                                 hue=df_filtre["continent"])
-st.pyplot(viz_correlation5.figure)
+st.pyplot(viz_correlation.figure)
 
    
 st.title('Graphique de corrélations filtré par région')
